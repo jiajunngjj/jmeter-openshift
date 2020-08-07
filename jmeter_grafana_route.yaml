@@ -1,0 +1,16 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: grafana
+  labels:
+    app: jmeter-grafana
+  annotations:
+    openshift.io/host.generated: 'true'
+spec:
+  to:
+    kind: Service
+    name: jmeter-grafana
+    weight: 100
+  port:
+    targetPort: http
+  wildcardPolicy: None
